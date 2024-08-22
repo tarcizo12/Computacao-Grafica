@@ -8,8 +8,7 @@ var velocidadeEixoX = 150
 @onready var personagem = get_node('../Player')
 
 func _physics_process(delta: float) -> void:
-	if referenciaDoJogador != null: 
-		moverInimigo(personagem.global_position)
+	if referenciaDoJogador != null: moverInimigo(personagem.global_position)
 
 func moverInimigo(posicaoPlayer):
 	var distancia = posicaoPlayer - global_position
@@ -20,13 +19,18 @@ func moverInimigo(posicaoPlayer):
 func setVelocidadesNosEixos(direcaoNormalizada):
 		velocity.x = direcaoNormalizada.x * velocidadeEixoX
 		velocity.y = direcaoNormalizada.y * velocidadeEixoY
+		
 		move_and_slide()
 	
 func _on_raio_de_perseguicao_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"): referenciaDoJogador = body
+	if body.is_in_group("Player"):
+		referenciaDoJogador = body
+		$Sprite2D.play("Run")
 
 func _on_raio_de_perseguicao_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Player"): referenciaDoJogador = null
+	if body.is_in_group("Player"): 
+		referenciaDoJogador = null
+		$Sprite2D.play("Idle")
 		
 func _on_costas_do_inimigo_body_entered(body: Node2D) -> void:
 	velocidadeEixoX *= -1 

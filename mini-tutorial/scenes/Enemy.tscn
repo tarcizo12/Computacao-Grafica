@@ -1,7 +1,99 @@
-[gd_scene load_steps=6 format=3 uid="uid://cj8sy7qsj4bpc"]
+[gd_scene load_steps=26 format=3 uid="uid://cj8sy7qsj4bpc"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_hhe0m"]
 [ext_resource type="Texture2D" uid="uid://bkusj4nee7tdg" path="res://assets/enemy/Walk (1).png" id="1_sg77t"]
+[ext_resource type="Texture2D" uid="uid://cfj8761u686ok" path="res://assets/enemy/Idle (1).png" id="2_pqdb5"]
+[ext_resource type="Texture2D" uid="uid://chhbwvqlpnfuy" path="res://assets/enemy/Idle (2).png" id="3_65mq1"]
+[ext_resource type="Texture2D" uid="uid://b66fsqb27qsic" path="res://assets/enemy/Idle (3).png" id="4_pudwt"]
+[ext_resource type="Texture2D" uid="uid://o65kqdhjlxty" path="res://assets/enemy/Idle (4).png" id="5_frx7e"]
+[ext_resource type="Texture2D" uid="uid://b25wvdi0x2y83" path="res://assets/enemy/Idle (5).png" id="6_dxn4o"]
+[ext_resource type="Texture2D" uid="uid://bioxvi8vu0psi" path="res://assets/enemy/Idle (6).png" id="7_safy7"]
+[ext_resource type="Texture2D" uid="uid://b4rmphrlgmu78" path="res://assets/enemy/Idle (7).png" id="8_j8317"]
+[ext_resource type="Texture2D" uid="uid://bovmousv5disl" path="res://assets/enemy/Idle (8).png" id="9_idtyb"]
+[ext_resource type="Texture2D" uid="uid://dcunsqimqym6" path="res://assets/enemy/Idle (9).png" id="10_obo8y"]
+[ext_resource type="Texture2D" uid="uid://c7tcvnk4b8jj6" path="res://assets/enemy/Idle (10).png" id="11_77hw8"]
+[ext_resource type="Texture2D" uid="uid://b8mwydaa44gk7" path="res://assets/enemy/Walk (2).png" id="13_eqnrt"]
+[ext_resource type="Texture2D" uid="uid://bnfe6abq7j4b8" path="res://assets/enemy/Walk (3).png" id="14_p3bsu"]
+[ext_resource type="Texture2D" uid="uid://b275ieqlc5qyg" path="res://assets/enemy/Walk (4).png" id="15_rieca"]
+[ext_resource type="Texture2D" uid="uid://bpg0lfoipkifa" path="res://assets/enemy/Walk (5).png" id="16_strty"]
+[ext_resource type="Texture2D" uid="uid://cimuhm6cfxpu" path="res://assets/enemy/Walk (6).png" id="17_x50bs"]
+[ext_resource type="Texture2D" uid="uid://bi5fw2yf6xvol" path="res://assets/enemy/Walk (7).png" id="18_qbyf4"]
+[ext_resource type="Texture2D" uid="uid://cac77ia82sac7" path="res://assets/enemy/Walk (8).png" id="19_6r8vj"]
+[ext_resource type="Texture2D" uid="uid://5ue3g36wdj5f" path="res://assets/enemy/Walk (9).png" id="20_kptse"]
+[ext_resource type="Texture2D" uid="uid://d0ud8g2m4jwjo" path="res://assets/enemy/Walk (10).png" id="21_q83lk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t3cvc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pqdb5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_65mq1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pudwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_frx7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dxn4o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_safy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_j8317")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_idtyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_obo8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_77hw8")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sg77t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_eqnrt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_p3bsu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_rieca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_strty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_x50bs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_qbyf4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_6r8vj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_kptse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_q83lk")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 25.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ka8du"]
 radius = 119.307
@@ -18,10 +110,12 @@ position = Vector2(-95, 67)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_hhe0m")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(840, 264)
 scale = Vector2(0.30889, 0.27914)
-texture = ExtResource("1_sg77t")
+sprite_frames = SubResource("SpriteFrames_t3cvc")
+animation = &"Run"
+frame_progress = 0.294245
 
 [node name="AreaColisaoEnemy" type="CollisionShape2D" parent="."]
 position = Vector2(832, 280)

@@ -12,12 +12,15 @@ func handleMovement():
 	
 	if eixoHorizontal:
 		velocity.x = eixoHorizontal * SPEED
+		$AnimacaoPlayer.play("Run")
 	else:
+		$AnimacaoPlayer.play("Idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 		
 	if eixoVertical:
 		velocity.y = eixoVertical * SPEED
+		$AnimacaoPlayer.play("Run")
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	
