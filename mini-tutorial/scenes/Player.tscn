@@ -5,17 +5,18 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gwqoc"]
 radius = 24.0
-height = 128.0
+height = 94.3904
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.882538, 0.960853)
 script = ExtResource("1_d0fhv")
-metadata/_edit_group_ = true
 
 [node name="AnimacaoPlayer" type="Sprite2D" parent="."]
-position = Vector2(280, 320)
-scale = Vector2(0.202891, 0.218799)
+position = Vector2(285.665, 320)
+scale = Vector2(0.123173, 0.144506)
 texture = ExtResource("2_u1abo")
 
 [node name="AreaDeColisao" type="CollisionShape2D" parent="."]
-position = Vector2(264, 312)
+position = Vector2(279.875, 318.467)
+scale = Vector2(-1.123, 0.970282)
 shape = SubResource("CapsuleShape2D_gwqoc")

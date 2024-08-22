@@ -12,7 +12,9 @@ scale = Vector2(1.2, 0.902778)
 texture = ExtResource("1_ggmge")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_n32i6")]
+position = Vector2(-280, 88)
+scale = Vector2(1.47029, 0.854408)
 
 [node name="Enemy" parent="." instance=ExtResource("3_wql75")]
-position = Vector2(440, 168)
-scale = Vector2(0.5, 0.5)
+position = Vector2(1264, 112)
+scale = Vector2(-0.806525, 0.67455)

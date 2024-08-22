@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj8sy7qsj4bpc"]
+[gd_scene load_steps=6 format=3 uid="uid://cj8sy7qsj4bpc"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_hhe0m"]
 [ext_resource type="Texture2D" uid="uid://bkusj4nee7tdg" path="res://assets/enemy/Walk (1).png" id="1_sg77t"]
@@ -8,17 +8,19 @@ radius = 119.307
 height = 390.908
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cgeg5"]
-radius = 384.333
+radius = 404.599
 
-[node name="Enemy" type="CharacterBody2D"]
-position = Vector2(-144, 56)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mmoc"]
+size = Vector2(281, 721)
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+position = Vector2(-95, 67)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_hhe0m")
-metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(840, 264)
-scale = Vector2(0.469378, 0.491164)
+scale = Vector2(0.30889, 0.27914)
 texture = ExtResource("1_sg77t")
 
 [node name="AreaColisaoEnemy" type="CollisionShape2D" parent="."]
@@ -30,8 +32,16 @@ shape = SubResource("CapsuleShape2D_ka8du")
 position = Vector2(0, 8)
 
 [node name="Area" type="CollisionShape2D" parent="RaioDePerseguicao"]
-position = Vector2(832, 280)
+position = Vector2(838, 266)
 shape = SubResource("CircleShape2D_cgeg5")
+
+[node name="CostasDoInimigo" type="Area2D" parent="RaioDePerseguicao"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RaioDePerseguicao/CostasDoInimigo"]
+position = Vector2(614, 254)
+shape = SubResource("RectangleShape2D_8mmoc")
 
 [connection signal="body_entered" from="RaioDePerseguicao" to="." method="_on_raio_de_perseguicao_body_entered"]
 [connection signal="body_exited" from="RaioDePerseguicao" to="." method="_on_raio_de_perseguicao_body_exited"]
+[connection signal="body_entered" from="RaioDePerseguicao/CostasDoInimigo" to="." method="_on_costas_do_inimigo_body_entered"]
+[connection signal="body_exited" from="RaioDePerseguicao/CostasDoInimigo" to="." method="_on_costas_do_inimigo_body_exited"]
