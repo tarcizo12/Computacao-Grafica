@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b74u6m520fmhu"]
+[gd_scene load_steps=4 format=3 uid="uid://b74u6m520fmhu"]
 
 [ext_resource type="Texture2D" uid="uid://ce54tapso48k0" path="res://assets/background.jpg" id="1_ggmge"]
-[ext_resource type="PackedScene" uid="uid://d2d8e1u5ch2x7" path="res://scenes/player.tscn" id="2_n32i6"]
+[ext_resource type="PackedScene" uid="uid://d2d8e1u5ch2x7" path="res://scenes/Player.tscn" id="2_n32i6"]
+[ext_resource type="PackedScene" uid="uid://cj8sy7qsj4bpc" path="res://scenes/Enemy.tscn" id="3_wql75"]
 
 [node name="Mundo" type="Node2D"]
 
@@ -10,4 +11,8 @@ position = Vector2(576, 323)
 scale = Vector2(1.2, 0.902778)
 texture = ExtResource("1_ggmge")
 
-[node name="Player" parent="." instance=ExtResource("2_n32i6")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_n32i6")]
+
+[node name="Enemy" parent="." instance=ExtResource("3_wql75")]
+position = Vector2(440, 168)
+scale = Vector2(0.5, 0.5)

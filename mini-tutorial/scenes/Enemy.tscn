@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj8sy7qsj4bpc"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_hhe0m"]
+[ext_resource type="Texture2D" uid="uid://bkusj4nee7tdg" path="res://assets/enemy/Walk (1).png" id="1_sg77t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ka8du"]
+radius = 119.307
+height = 390.908
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cgeg5"]
+radius = 384.333
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(-144, 56)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_hhe0m")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(840, 264)
+scale = Vector2(0.469378, 0.491164)
+texture = ExtResource("1_sg77t")
+
+[node name="AreaColisaoEnemy" type="CollisionShape2D" parent="."]
+position = Vector2(832, 280)
+scale = Vector2(0.469378, 0.491164)
+shape = SubResource("CapsuleShape2D_ka8du")
+
+[node name="RaioDePerseguicao" type="Area2D" parent="."]
+position = Vector2(0, 8)
+
+[node name="Area" type="CollisionShape2D" parent="RaioDePerseguicao"]
+position = Vector2(832, 280)
+shape = SubResource("CircleShape2D_cgeg5")
+
+[connection signal="body_entered" from="RaioDePerseguicao" to="." method="_on_raio_de_perseguicao_body_entered"]
+[connection signal="body_exited" from="RaioDePerseguicao" to="." method="_on_raio_de_perseguicao_body_exited"]
