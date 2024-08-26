@@ -115,7 +115,7 @@ position = Vector2(840, 264)
 scale = Vector2(0.30889, 0.27914)
 sprite_frames = SubResource("SpriteFrames_t3cvc")
 animation = &"Run"
-frame_progress = 0.294245
+frame_progress = 0.206715
 
 [node name="AreaColisaoEnemy" type="CollisionShape2D" parent="."]
 position = Vector2(832, 280)

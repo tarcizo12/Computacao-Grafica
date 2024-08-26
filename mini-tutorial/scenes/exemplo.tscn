@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw7yhdsify68m"]
+
+[ext_resource type="Script" path="res://scenes/exemplo.gd" id="1_fkbcv"]
+[ext_resource type="Texture2D" uid="uid://cfj8761u686ok" path="res://assets/enemy/Idle (1).png" id="1_mn0oo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x0r2k"]
+radius = 227.707
+height = 795.21
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5wkqm"]
+radius = 229.225
+
+[node name="Exemplo" type="CharacterBody2D"]
+script = ExtResource("1_fkbcv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(388, 180.625)
+scale = Vector2(0.234888, 0.218545)
+texture = ExtResource("1_mn0oo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(376, 192)
+scale = Vector2(0.234888, 0.218545)
+shape = SubResource("CapsuleShape2D_x0r2k")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(376, 184)
+shape = SubResource("CircleShape2D_5wkqm")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
